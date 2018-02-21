@@ -1,4 +1,6 @@
-
+const fs = require('browserify-fs');
+// const myCoolAudio = new Audio();
+// myCoolAudio.src = '../../public/audio-file.flac';
 
 
 export const apiGet = async () => {
@@ -13,15 +15,15 @@ export const apiPost = async () => {
  try {
     const url = 'http://localhost:5000/checkAudioText'
 
-    const newAudio = '';
-    const readableStream = new ReadableStream('audio-file-2.flac');
-    await readableStream.pipeTo(newAudio)
-
+    const newAudio = 'public/audio-file.flac';
+    const readableStream = await fs.createReadStream(newAudio);
+    // await readableStream.pipeTo(newAudio)
+    debugger
     const response = await fetch( url, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        audio: newAudio
+        audio: readableStream
       })
     })
 
