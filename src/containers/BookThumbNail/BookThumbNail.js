@@ -4,11 +4,16 @@ import { connect } from 'react-redux';
 import { loadCards } from '../../actions/index';
 import Book from '../Book/Book';
 import { Link } from 'react-router-dom';
+import { apiGet, apiPost } from '../../helper/apiCalls';
+const recognizeMic = require('watson-speech/speech-to-text/recognize-microphone');
+
 
 export class BookThumbNail extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     const flashCards = mockData;
-    this.props.loadCards(flashCards);
+    const response = await apiPost();
+    await console.log(response);
+    await this.props.loadCards(flashCards);
   }
 
   renderedThumbNails = () => this.props.cards.map( (card, key) => {

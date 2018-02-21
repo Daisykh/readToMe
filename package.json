@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "browser-stream": "^0.1.10",
     "curl": "^0.1.4",
+    "fs": "0.0.1-security",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
@@ -12,7 +14,8 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "watson-speech": "^0.34.1"
   },
   "scripts": {
     "start-js": "react-scripts start",
@@ -33,5 +36,6 @@
     "react-test-renderer": "^16.2.0",
     "redux-devtools": "^3.4.1",
     "prop-types": "^15.6.0"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }
