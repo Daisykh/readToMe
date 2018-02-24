@@ -3,7 +3,7 @@ import BookThumbNail from '../BookThumbNail/BookThumbNail';
 import mockData from '../../__mocks__/mockData';
 import Book from '../Book/Book';
 import { Route } from 'react-router-dom';
-import './BookShelf.css'
+import './BookShelf.css';
 import Nav from '../Nav/Nav';
 import Header from '../../components/Header/Header';
 
@@ -33,3 +33,5 @@ class BookShelf extends Component {
 }
 
 export default BookShelf;
+
+

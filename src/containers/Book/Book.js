@@ -43,7 +43,6 @@ class Book extends Component {
   stopRecording = () => {
     console.log('stop selected')
     this.micStream.stop()
-
   }
 
   submitAudio = () => {
