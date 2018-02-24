@@ -56,7 +56,7 @@ class Book extends Component {
     return (
       <div className="Book">
         <p>I'm a Book!</p>
-        <img src={url} />
+        <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <button onClick={ this.recordAudio } >Record</button>
         <button onClick={ this.stopRecording } >Stop Recording</button>

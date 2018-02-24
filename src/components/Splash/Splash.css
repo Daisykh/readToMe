@@ -1,0 +1,44 @@
+#splash-page {
+  background-image: url('../../assets/5.jpeg');
+  text-align: center; 
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#layer {
+  background: rgba(246, 109, 95, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#logo {
+  size: 40px;
+  color: #333332;
+}
+
+button {
+  color: white;
+  background: #66e3e1; /* Old browsers */
+  background: -moz-linear-gradient(left, #66e3e1 1%, #56c5e0 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #66e3e1 1%,#56c5e0 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #66e3e1 1%,#56c5e0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66e3e1', endColorstr='#56c5e0',GradientType=1 ); /* IE6-9 */
+  box-shadow: none;
+  border-style: none;
+  border-radius: 5px;
+  padding:0.7em 1.7em;
+  margin:0px 20px 0px 20px;
+  border-radius:0.2em;
+}

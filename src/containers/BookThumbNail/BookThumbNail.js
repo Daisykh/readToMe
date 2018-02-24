@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import mockData from '../../__mocks__/mockData';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/index';
-import Book from '../Book/Book';
+// import Book from '../Book/Book';
 import { Link } from 'react-router-dom';
-import { apiGet, apiPost } from '../../helper/apiCalls';
+import { apiPost } from '../../helper/apiCalls';
+import './BookThumbNail.css'
 const recognizeMic = require('watson-speech/speech-to-text/recognize-microphone');
 
 
@@ -19,18 +20,20 @@ export class BookThumbNail extends Component {
   renderedThumbNails = () => this.props.cards.map( (card, key) => {
       const url = card.img
       return (
-        <Link to={`/cards/${card.id}`} >
-          <div className={card.id} >
-              <img src={url} key={card.id} />
-          </div>
-        </Link>
+        <div className="thumbContainer">
+          <Link to={`/cards/${card.id}`} key={card.id} >
+            <div className={card.id} id="thumb-nail" >
+                <img src={url} key={card.id} alt="book thumb nail"/>
+            </div>
+          </Link>
+        </div>
       )
     })
   
 
   render() {
      return (
-      <div className="thumbNailContainer">
+      <div className="thumbNailsContainer">
         { this.renderedThumbNails() }
       </div>
     );
