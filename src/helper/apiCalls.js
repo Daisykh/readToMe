@@ -12,30 +12,30 @@ export const apiGet = async () => {
 }
 
 export const apiPost = async () => {
- try {
-    const url = 'http://localhost:5000/checkAudioText'
+ // try {
+ //    const url = 'http://localhost:5000/checkAudioText'
 
-    const newAudio = 'public/audio-file.flac';
-    const readableStream = await fs.createReadStream(newAudio);
-    // await readableStream.pipeTo(newAudio)
-    debugger
-    const response = await fetch( url, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        audio: readableStream
-      })
-    })
+ //    const newAudio = 'public/audio-file.flac';
+ //    const readableStream = await fs.createReadStream(newAudio);
+ //    // await readableStream.pipeTo(newAudio)
+ //    // debugger
+ //    const response = await fetch( url, {
+ //      method: 'POST',
+ //      headers: { "Content-Type": "application/json" },
+ //      body: JSON.stringify({
+ //        audio: readableStream
+ //      })
+ //    })
 
-    if (response.status <= 200){
-      return await response.json()
-    } else {
-      throw new Error("Unable to get audioSample transcript")
-    }
-  } 
-  catch(err) {
-    throw(err)
-  }  
+ //    if (response.status <= 200){
+ //      return await response.json()
+ //    } else {
+ //      throw new Error("Unable to get audioSample transcript")
+ //    }
+ //  } 
+ //  catch(err) {
+ //    throw(err)
+ //  }  
 
 }
 

@@ -7,6 +7,7 @@
     "browserify-fs": "^1.0.0",
     "curl": "^0.1.4",
     "fs": "0.0.1-security",
+    "microphone-stream": "^4.1.3",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
@@ -17,6 +18,7 @@
     "readable-stream": "^2.3.4",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "socket.io": "^2.0.4",
     "watson-speech": "^0.34.1"
   },
   "scripts": {
