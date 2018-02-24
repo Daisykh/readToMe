@@ -10,8 +10,6 @@ class App extends Component {
       <div className="App">
         <Route exact path='/' component={ Splash }/>
         <Route exact path='/first' component={ BookShelf } />
-        <Route exact path='/second' component={ BookShelf } />
-        <Route exact path='/third' component={ BookShelf } />
       </div>
     );
   }

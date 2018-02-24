@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import mockData from '../../__mocks__/mockData';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/index';
-// import Book from '../Book/Book';
+import Book from '../Book/Book';
 import { Link } from 'react-router-dom';
 import { apiPost } from '../../helper/apiCalls';
 import './BookThumbNail.css'
-const recognizeMic = require('watson-speech/speech-to-text/recognize-microphone');
+// const recognizeMic = require('watson-speech/speech-to-text/recognize-microphone');
 
 
 export class BookThumbNail extends Component {
@@ -17,24 +17,33 @@ export class BookThumbNail extends Component {
     await this.props.loadCards(flashCards);
   }
 
-  renderedThumbNails = () => this.props.cards.map( (card, key) => {
+  renderedThumbNails = () => this.props.cards.map( (card) => {
       const url = card.img
       return (
-        <div className="thumbContainer">
-          <Link to={`/cards/${card.id}`} key={card.id} >
-            <div className={card.id} id="thumb-nail" >
-                <img src={url} key={card.id} alt="book thumb nail"/>
+        
+          <Link to={`/cards/${card.id}`} >
+            <div className="thumb">
+              <div className={card.id}>
+                  <img className="thumb__img" src={url}/>
+              </div>
+              <div className="thumb__details">
+                <div className="thumb__title">Book Name</div>
+              </div>
             </div>
           </Link>
-        </div>
+ 
       )
     })
   
 
   render() {
      return (
-      <div className="thumbNailsContainer">
-        { this.renderedThumbNails() }
+      <div>
+        <div className="row">
+          <div className="row__inner parent">
+          { this.renderedThumbNails() }
+          </div>
+        </div>
       </div>
     );
   }
