@@ -103,10 +103,10 @@ class Book extends Component {
 
   render() {
     const url = this.props.img
-    const activeRecord = this.state.recording ? "recording" : "disabled-record";
-    const readyRecord = this.state.submitted ? "enabled-record": "";
-    const disabledSubmit = this.state.recorded ? "disabled" : "enabled";
-    const successfulSubmit = this.state.submitted ? "successful-submit" : ""
+    const activeRecord = this.state.recording ? "recording" : "enabled-record" ;
+    const disableRecord = this.state.recorded && !this.state.recording ? "disabled-record": "";
+    const disabledSubmit = this.state.recorded && !this.state.recording ? "" : "disabled-submit";
+    const successfulSubmit = this.state.submitted ? "successful-submit" : "enabled-submit"
 
     return (
       <div className="Book">
@@ -114,8 +114,8 @@ class Book extends Component {
         <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <div className="button-display">
-          <button onClick={ this.toggleRecord } className={activeRecord, readyRecord} >Record</button>
-          <button onClick={ this.submitAudio } className={disabledSubmit, successfulSubmit} >Submit</button>
+          <button onClick={ this.toggleRecord } id={disableRecord} className={activeRecord} >Record</button>
+          <button onClick={ this.submitAudio } id={disabledSubmit} className={successfulSubmit} >Submit</button>
         </div>
       </div>
     );
