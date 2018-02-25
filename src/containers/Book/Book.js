@@ -114,8 +114,8 @@ class Book extends Component {
         <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <div className="button-display">
-          <button onClick={ this.toggleRecord } id={disableRecord} className={activeRecord} >Record</button>
-          <button onClick={ this.submitAudio } id={disabledSubmit} className={successfulSubmit} >Submit</button>
+          <button onClick={ this.toggleRecord } id={disableRecord} className={activeRecord} >Read To Me!</button>
+          <button onClick={ this.submitAudio } id={disabledSubmit} className={successfulSubmit} >Check</button>
         </div>
       </div>
     );
