@@ -33,10 +33,10 @@ a:active
   user-select: none;
 }
 
-img {
+/*img {
   height: 40px;
   width: 40px;
-}
+}*/
 
 #menuToggle input
 {
