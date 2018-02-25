@@ -54,7 +54,7 @@ class Book extends Component {
     console.log('toggled')
     this.setState({ 
       recording 
-    }, this.checkAudio)
+    }, this.checkAudio);
 
   }
 
@@ -75,6 +75,7 @@ class Book extends Component {
 
   render() {
     const url = this.props.img
+    const classList = this.state.recording ? "recording audio-button" : "audio-button"
 
     return (
       <div className="Book">
@@ -82,8 +83,8 @@ class Book extends Component {
         <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <div className="button-display">
-          <button onClick={ this.toggleRecord } className="audio-buttons" >Record</button>
-          <button onClick={ this.submitAudio } className="audio-buttons" >Submit</button>
+          <button onClick={ this.toggleRecord } className={classList} >Record</button>
+          <button onClick={ this.submitAudio } className="audio-button" >Submit</button>
         </div>
       </div>
     );
