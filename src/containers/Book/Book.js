@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Book.css'
+import './Book.css';
+import Header from '../../components/Header/Header'
 const getUserMedia = require('get-user-media-promise');
 const MicrophoneStream = require('microphone-stream');
 // const socket = io('http://localhost:5000/');
@@ -111,7 +112,7 @@ class Book extends Component {
 
     return (
       <div className="Book">
-
+        <Header />
         <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <div className="button-display">

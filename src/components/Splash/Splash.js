@@ -10,10 +10,11 @@ class Splash extends Component {
     return (
       <div id="splash-page">
         <div id="layer">
-          <h1 id="logo">Read To Me</h1>
-          <Link to="/first" className="link-button"><button>1st Grade</button></Link>
-          <Link to="/first" className="link-button"><button>2nd Grade</button></Link>
-          <Link to="/first" className="link-button"><button>3rd Grade</button></Link>
+          <div id="blur"></div>
+            <h1 id="logo">Read To Me</h1>
+            <Link to="/bookshelf" className="link-button">1st Grade</Link>
+            <Link to="/bookshelf" className="link-button">2nd Grade</Link>
+            <Link to="/bookshelf" className="link-button">3rd Grade</Link>
         </div>
       </div>
     )
