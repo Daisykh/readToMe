@@ -11,47 +11,38 @@ class Book extends Component {
   constructor(props) {
     super(props)
 
-    this.micStream 
-
     this.state = {
       recording: false,
     }
+
+    this.micStream 
   }
 
   createMic = () => {
      this.micStream = new MicrophoneStream();
   }
 
-
   recordAudio = async () => {
-
-    this.toggleRecord();
-
-
+    console.log('recording')
     const testSocket = io.connect('http://localhost:5000');
     testSocket.on('connect', (data) => {
       testSocket.emit('join', 'Hello World from client');
     })
 
-    // this.createMic();
-    // console.log('record selected');
-    // const micStream = this.micStream
-    // getUserMedia({ video: false, audio: true })
-    //   .then(function(stream) {
-    //    micStream.setStream(stream);
-    //   }).catch(function(error) {
-    //     console.log(error);
-    //   })
+    this.createMic();
+    console.log('record selected');
+    const micStream = this.micStream
+    getUserMedia({ video: false, audio: true })
+      .then(function(stream) {
+       micStream.setStream(stream);
+      }).catch(function(error) {
+        console.log(error);
+      })
 
-    //   this.micStream.on('data', function(chunk) {
-    //     const raw = MicrophoneStream.toRaw(chunk);
-    //     console.log(raw)
-    //   })
-  }
-
-  stopRecording = () => {
-    console.log('stop selected')
-    this.micStream.stop()
+    this.micStream.on('data', function(chunk) {
+      const raw = MicrophoneStream.toRaw(chunk);
+      console.log(raw)
+    })
   }
 
   submitAudio = () => {
@@ -61,10 +52,25 @@ class Book extends Component {
   toggleRecord = () => {
     const recording = !this.state.recording
     console.log('toggled')
-    this.setState({
-      recording: recording
-    })
-    // this.state.recording = !this.state.recording
+    this.setState({ 
+      recording 
+    }, this.checkAudio)
+
+  }
+
+  checkAudio = () => {
+    if (this.state.recording) {
+      this.recordAudio();
+    }
+
+    if (!this.state.recording) {
+      this.stopAudio();
+    }
+  }
+
+  stopAudio = () => {
+    console.log('stop selected')
+    this.micStream.stop()
   }
 
   render() {
@@ -76,7 +82,7 @@ class Book extends Component {
         <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <div className="button-display">
-          <button onClick={ this.recordAudio } className="audio-buttons" >Record</button>
+          <button onClick={ this.toggleRecord } className="audio-buttons" >Record</button>
           <button onClick={ this.submitAudio } className="audio-buttons" >Submit</button>
         </div>
       </div>
