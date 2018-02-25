@@ -15,11 +15,9 @@ class Nav extends Component {
             <span></span>
 
             <ul id="menu">
-              <li><NavLink to='/'>Splash</NavLink></li>
-              <li><NavLink to='/first'>Test</NavLink></li>
-              <li><NavLink to='/first'>Test</NavLink></li>
-              <li><NavLink to='/first'>Test</NavLink></li>
-              <li><NavLink to='/first'>Test</NavLink></li>
+              <li><NavLink to='/'>Home</NavLink></li>
+              <li><NavLink to='/bookshelf'>My Bookshelf</NavLink></li>
+              <li><NavLink to='/bookshelf'>Favorites</NavLink></li>
             </ul>
           </div>
         </nav>

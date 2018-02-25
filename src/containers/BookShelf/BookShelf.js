@@ -13,19 +13,7 @@ class BookShelf extends Component {
     return (
       <div className="BookShelf">
         <Header />
-        <Route exact path='/first' component={BookThumbNail} />
-        <Route exact path="/cards/:id" render={ ({match}) => {
-          const id = parseInt(match.params.id);
-          const card = mockData.find( card => {
-            return card.id === id
-          })
-          if (card) {
-            return (
-              <Book {...card}/>
-            )
-          }
-
-        }} /> 
+        <BookThumbNail />
       </div>
   
     );

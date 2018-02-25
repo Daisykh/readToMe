@@ -33,11 +33,6 @@ a:active
   user-select: none;
 }
 
-/*img {
-  height: 40px;
-  width: 40px;
-}*/
-
 #menuToggle input
 {
   display: block;
@@ -55,9 +50,6 @@ a:active
   -webkit-touch-callout: none;
 }
 
-/*
- * Just a quick hamburger
- */
 #menuToggle span
 {
   display: block;
@@ -122,7 +114,7 @@ a:active
 #menu
 {
   position: absolute;
-  width: 75px;
+  text-align: left;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
@@ -142,14 +134,15 @@ a:active
 #menu li
 {
   padding: 10px 0;
-  font-size: 22px;
+  font-size: 20px;
 }
 
-/*
- * And let's slide it in from the left
- */
 #menuToggle input:checked ~ ul
 {
   transform: none;
 }
 
+#menuToggle:focus
+{
+  transform: none;
+}

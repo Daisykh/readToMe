@@ -1,5 +1,5 @@
 #splash-page {
-  background-image: url('../../assets/5.jpeg');
+  background-image: url('../../assets/3.jpg');
   text-align: center; 
   height: 100vh;
   position: relative;
@@ -12,23 +12,50 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  
+
 }
 
 #layer {
-  background: rgba(246, 109, 95, 0.2);
+  background: linear-gradient(to right, rgba(102, 227, 225, .1), rgba(86, 197, 224, .2)); 
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+
+}
+
+/*come back and blur the background image*/
+#blur {
+  filter: blur(5px);
+
+}
+
+.element-styling {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
 }
 
 #logo {
-  size: 40px;
-  color: #333332;
+  font-size: 75px;
+  color: #FFFFFF;
+  margin-top: 300px;
+  margin-bottom: 60px;
+  font-family: 'Codystar', cursive;
+}
+
+a {
+  margin: 0px 20px;
 }
 
 .link-button {
+  opacity: .8;
   color: white;
   background: #66e3e1; /* Old browsers */
   background: -moz-linear-gradient(left, #66e3e1 1%, #56c5e0 100%); /* FF3.6-15 */
@@ -38,7 +65,14 @@
   box-shadow: none;
   border-style: none;
   border-radius: 5px;
-  padding:0.7em 1.7em;
-  margin:0px 20px 0px 20px;
+  width: 150px;
+  height: 40px;
+  padding: 0.7em 1.7em;
+  margin: 0px 20px;
   border-radius:0.2em;
+}
+
+.link-button:hover {
+  opacity: 1;
+  color: white;
 }

@@ -9,7 +9,7 @@ class Header extends Component {
     return (
       <div id="header-section">
         <Nav />
-        <p>I'm the header</p>
+        <h2>My Bookshelf</h2>
       </div>
     )
   }
