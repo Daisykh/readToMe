@@ -20,25 +20,33 @@ export class BookThumbNail extends Component {
   renderedThumbNails = () => this.props.cards.map( (card) => {
       const url = card.img
       return (
-        
+        <div className="thumb">
           <Link to={`/cards/${card.id}`} >
-            <div className="thumb">
               <div className={card.id}>
                   <img className="thumb__img" src={url}/>
               </div>
               <div className="thumb__details">
-                <div className="thumb__title">Book Name</div>
+                <div className="thumb__title"></div>
               </div>
-            </div>
           </Link>
- 
+        </div>
       )
     })
   
 
   render() {
      return (
-      <div>
+      <div className="row-container">
+        <div className="row">
+          <div className="row__inner parent">
+          { this.renderedThumbNails() }
+          </div>
+        </div>
+        <div className="row">
+          <div className="row__inner parent">
+          { this.renderedThumbNails() }
+          </div>
+        </div>
         <div className="row">
           <div className="row__inner parent">
           { this.renderedThumbNails() }
