@@ -33,10 +33,10 @@ a:active
   user-select: none;
 }
 
-img {
+/*img {
   height: 40px;
   width: 40px;
-}
+}*/
 
 #menuToggle input
 {
@@ -126,7 +126,7 @@ img {
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  height: 100vh;
+  height: 110vh;
   
   background: #333332;
   list-style-type: none;

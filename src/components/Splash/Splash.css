@@ -28,7 +28,7 @@
   color: #333332;
 }
 
-button {
+.link-button {
   color: white;
   background: #66e3e1; /* Old browsers */
   background: -moz-linear-gradient(left, #66e3e1 1%, #56c5e0 100%); /* FF3.6-15 */

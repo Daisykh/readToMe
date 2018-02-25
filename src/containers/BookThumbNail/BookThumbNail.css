@@ -4,15 +4,12 @@ a {
 }
 
 #thumb-nail img {
-/*  background-image: url(url);
-*/  text-align: center; 
+  text-align: center; 
   position: relative;
   z-index: 0;
   height: 200px;
   width: 100px;
   margin: -10px;
-/*  background-repeat: no-repeat;
-  background-size: cover;*/
 }
 
 .thumbNailsContainer {
@@ -24,7 +21,6 @@ a {
 
 .thumbContainer {
   width: 150px;
-/*  position: absolute;*/
 }
 
 #thumb-nail {
@@ -35,41 +31,49 @@ a {
 }
 
 .row {
-  margin: 50px 0px;
-  width: 70% ;
-  height: 300px;
+  margin: 20px 0px;
+/*  width: 70% ;*/
+  height: 335px;
 }
 
 .row__inner {
   transition: 450ms transform;
   font-size: 0;
   white-space: nowrap;
-  margin: ((250px / (16/9)) / 2) 0;
-  padding: 20px;
-  height: 300px;
+  margin: 20px 0px 0px 0px;
+ /* margin: ((250px / (16/9)) / 2) 0;*/
+  padding: 20px 0px 5px 0px;
+  height: 315px;
   overflow-y: scroll;
   overflow-x: visible;
-
+ /* display: flex;*/
+  /*flex-direction: row;
+*/
 }
+
+/*come back and make the rows flex*/
+
 .thumb
- { position: relative;
+ { 
+  position: relative;
    display: inline-block;
-   width: 200px;
-   height: 200px;
-   margin-right: 40px;
+   width: 175px;
+   max-height: 160px;
+   margin: 0px 15px 0px 15px;
    font-size: 20px;
    cursor: pointer;
    transition: 450ms all;
-   transform-origin: center left;
+   transform-origin: bottom center;
  }
+
 .thumb__img
 {  
-  width: 100%;
+  width: 175px;
   height: 100%;
   object-fit: cover;
 }
 
-.thumb__details {
+/*.thumb__details:hover {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -78,73 +82,71 @@ a {
   font-size: 10px;
   opacity: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-  transition: 450ms opacity;
+  transition: 100ms opacity;
 }
+*/
 
-/* .thumb__details:after
- .thumb__details:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: black;
- }*/
+/*.thumb__details:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: black;
+}*/
 
+/*.thumb__details:hover {
+    margin-top: (-(50px / 2));
+    margin-left: (-(50px / 2));
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ecf0f1;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+  }*/
 
-  .thumb__details:hover {
-      margin-top: (-(50px / 2));
-      margin-left: (-(50px / 2));
-      width: 50px;
-      height: 50px;
-      border: 3px solid #ecf0f1;
-      line-height: 50px;
-      text-align: center;
-      border-radius: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1;
-    }
+/*.thumb__details:before {
+    content: '▶';
+    left: 0;
+    width: 100%;
+    font-size: 30px;
+    margin-left: 7px;
+    margin-top: -18px;
+    text-align: center;
+    z-index: 2;
+  }
+*/
+/*.thumb:hover {
+    opacity: 1
+}*/
 
-  .thumb__details:before
-    {
-      /*content: '▶';*/
-        left: 0;
-        width: 100%;
-        font-size: 30px;
-        margin-left: 7px;
-        margin-top: -18px;
-        text-align: center;
-        z-index: 2;
-      }
-
-.thumb:hover {
-/*    opacity: 1
-*/}
-
-.thumb__title
+/*.thumb__title
  { 
   position: absolute;
   bottom: 0;
   padding: 10px;
- }
+ }*/
 
 .parent:hover > .thumb {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .parent:hover > .thumb:hover {
-  opacity: 2.0;
+  opacity: 1;
 }
 
-.row__inner:hover
-{ 
+.row__inner:hover { 
  transform: translate3d(-(250px * (1.5 - 1) / 2), 0, 0);
-/* opacity: .3;
-*/}
+}
 
-.row__inner:hover, 
-/*.thumb
-*/{
- 
+.row-container:hover > .row {
+  opacity: 1.5;
+}
+
+.row-container:hover > .row:hover {
+  opacity: 2.0;
 }
 
 .thumb:hover
@@ -155,4 +157,13 @@ a {
 
 .thumb:hover {
   transform: translate3d(250px * (1.5 - 1), 0, 0);
+}
+
+.row {
+  box-shadow: 0 4px 2px -2px #cdcdcd;
+}
+
+.row-container {
+  align-self: center;
+  width: 80%;
 }
