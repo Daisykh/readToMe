@@ -5,14 +5,15 @@ const MicrophoneStream = require('microphone-stream');
 // const socket = io('http://localhost:5000/');
 const io = require('socket.io-client');
 
-
-
 class Book extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       recording: false,
+      recorded: false, 
+      submitted: false,
+      feedbackGiven: false,
     }
 
     this.micStream 
@@ -45,17 +46,41 @@ class Book extends Component {
     })
   }
 
-  submitAudio = () => {
-    console.log('submit selected')
+  submitAudio = async () => {
+   await console.log('submit selected');
+   await this.toggleSubmit();
+   await this.userFeedback();
+  }
+
+  toggleSubmit = () => {
+    this.setState({
+      submitted: true
+    })
+  }
+
+  userFeedback = async () => {
+    alert('Good job! You read the passage correctly');
+    this.resetRecord();
+    this.setState({
+      feedbackGiven: true
+    })
+  }
+
+  resetRecord = () => {
+    this.setState({
+      recording: false,
+      recorded: false, 
+    })
   }
 
   toggleRecord = () => {
-    const recording = !this.state.recording
+    const recording = !this.state.recording;
     console.log('toggled')
     this.setState({ 
-      recording 
+      recording: recording,
+      submitted: false,
+      feedbackGiven: false
     }, this.checkAudio);
-
   }
 
   checkAudio = () => {
@@ -71,11 +96,17 @@ class Book extends Component {
   stopAudio = () => {
     console.log('stop selected')
     this.micStream.stop()
+    this.setState({
+      recorded: true
+    })
   }
 
   render() {
     const url = this.props.img
-    const classList = this.state.recording ? "recording audio-button" : "audio-button"
+    const activeRecord = this.state.recording ? "recording" : "disabled-record";
+    const readyRecord = this.state.submitted ? "enabled-record": "";
+    const disabledSubmit = this.state.recorded ? "disabled" : "enabled";
+    const successfulSubmit = this.state.submitted ? "successful-submit" : ""
 
     return (
       <div className="Book">
@@ -83,8 +114,8 @@ class Book extends Component {
         <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <div className="button-display">
-          <button onClick={ this.toggleRecord } className={classList} >Record</button>
-          <button onClick={ this.submitAudio } className="audio-button" >Submit</button>
+          <button onClick={ this.toggleRecord } className={activeRecord, readyRecord} >Record</button>
+          <button onClick={ this.submitAudio } className={disabledSubmit, successfulSubmit} >Submit</button>
         </div>
       </div>
     );
