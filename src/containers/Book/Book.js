@@ -106,7 +106,8 @@ class Book extends Component {
     const activeRecord = this.state.recording ? "recording" : "enabled-record" ;
     const disableRecord = this.state.recorded && !this.state.recording ? "disabled-record": "";
     const disabledSubmit = this.state.recorded && !this.state.recording ? "" : "disabled-submit";
-    const successfulSubmit = this.state.submitted ? "successful-submit" : "enabled-submit"
+    const successfulSubmit = this.state.submitted ? "successful-submit" : "enabled-submit";
+    const recordText =this.state.recording ? "Recording" : "Read To Me!" ;
 
     return (
       <div className="Book">
@@ -114,7 +115,7 @@ class Book extends Component {
         <img src={url} alt="book display"/>
         <p>{this.props.text}</p>
         <div className="button-display">
-          <button onClick={ this.toggleRecord } id={disableRecord} className={activeRecord} >Read To Me!</button>
+          <button onClick={ this.toggleRecord } id={disableRecord} className={activeRecord} >{recordText}</button>
           <button onClick={ this.submitAudio } id={disabledSubmit} className={successfulSubmit} >Check</button>
         </div>
       </div>

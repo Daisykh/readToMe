@@ -5,6 +5,7 @@
   "dependencies": {
     "browser-stream": "^0.1.10",
     "browserify-fs": "^1.0.0",
+    "compass": "^0.1.1",
     "curl": "^0.1.4",
     "fs": "0.0.1-security",
     "microphone-stream": "^4.1.3",
