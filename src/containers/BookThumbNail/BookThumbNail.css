@@ -31,19 +31,19 @@ a {
 }
 
 .row {
-  margin: 0;
-  width: 70% ;
-  height: 325px;
+  margin: 20px 0px;
+/*  width: 70% ;*/
+  height: 335px;
 }
 
 .row__inner {
   transition: 450ms transform;
   font-size: 0;
   white-space: nowrap;
-  margin: 0;
+  margin: 20px 0px 0px 0px;
  /* margin: ((250px / (16/9)) / 2) 0;*/
-  padding: 20px;
-  height: 290px;
+  padding: 20px 0px 5px 0px;
+  height: 315px;
   overflow-y: scroll;
   overflow-x: visible;
  /* display: flex;*/
@@ -59,11 +59,11 @@ a {
    display: inline-block;
    width: 175px;
    max-height: 160px;
-   margin-right: 40px;
+   margin: 0px 15px 0px 15px;
    font-size: 20px;
    cursor: pointer;
    transition: 450ms all;
-   transform-origin: center;
+   transform-origin: bottom center;
  }
 
 .thumb__img
@@ -130,33 +130,24 @@ a {
  }*/
 
 .parent:hover > .thumb {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .parent:hover > .thumb:hover {
-  opacity: 2.0;
+  opacity: 1;
 }
 
-.row__inner:hover
-{ 
+.row__inner:hover { 
  transform: translate3d(-(250px * (1.5 - 1) / 2), 0, 0);
-/* opacity: .3;
-*/}
-
-.row__inner:hover, 
-/*.thumb
-*/{
- 
 }
 
 .row-container:hover > .row {
-  opacity: 0.8;
+  opacity: 1.5;
 }
 
 .row-container:hover > .row:hover {
   opacity: 2.0;
 }
-
 
 .thumb:hover
 {  
@@ -166,4 +157,13 @@ a {
 
 .thumb:hover {
   transform: translate3d(250px * (1.5 - 1), 0, 0);
+}
+
+.row {
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.row-container {
+  align-self: center;
+  width: 80%;
 }
