@@ -1,4 +1,10 @@
+/* eslint-disable */
+// disable above is because of socket.io.
+// there are 4 errors here because I'm still in the 
+// middle of setup
+
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Book.css';
 import Header from '../../components/Header/Header';
 const getUserMedia = require('get-user-media-promise');
@@ -27,7 +33,7 @@ class Book extends Component {
   recordAudio = async () => {
     // console.log('recording');
     const testSocket = io.connect('http://localhost:5000');
-    testSocket.on('connect', (dataString) => {
+    testSocket.on('connect', (data) => {
       testSocket.emit('join', 'Hello World from client');
     });
 
@@ -124,6 +130,9 @@ class Book extends Component {
   }
 }
 
-// props validation for img and text
+Book.propTypes = {
+  img: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default Book;

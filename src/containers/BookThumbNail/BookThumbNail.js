@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import mockData from '../../__mocks__/mockData';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/index';
-import Book from '../Book/Book';
 import { Link, withRouter } from 'react-router-dom';
-import { apiPost } from '../../helper/apiCalls';
+// import { apiPost } from '../../helper/apiCalls';
 import './BookThumbNail.css';
 // const recognizeMic = require('watson-speech/speech-to-text/recognize-microphone');
 
@@ -17,11 +17,11 @@ export class BookThumbNail extends Component {
     this.props.loadCards(flashCards);
   }
 
-  renderedThumbNails = () => this.props.cards.map( (card) => {
+  renderedThumbNails = () => this.props.cards.map( (card, index) => {
     const url = card.img;
 
     return (
-      <div className="thumb">
+      <div className="thumb" key={index}>
         <Link to={`/cards/${card.id}`} >
           <div className={card.id}>
             <img className="thumb__img" src={url}/>
@@ -65,5 +65,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   loadCards: cards => dispatch(loadCards(cards))
 });
+
+BookThumbNail.propTypes = {
+  loadCards: PropTypes.string,
+  cards: PropTypes.string,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookThumbNail));

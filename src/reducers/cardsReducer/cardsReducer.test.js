@@ -5,8 +5,7 @@ import * as actions from '../../actions';
 import mockData from '../../__mocks__/mockData';
 
 describe('cardsReducer', () => {
-  let mockData;
-
+  
   it('should return the default state', () => {
     const expected = [];
 

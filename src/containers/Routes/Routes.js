@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route,  withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Splash from '../../components/Splash/Splash';
 import BookShelf from '../../components/BookShelf/BookShelf';
@@ -28,6 +29,10 @@ export class Routes extends Component {
   }
 }
 
+Routes.propTypes = {
+  cards: PropTypes.array,
+  text: PropTypes.string,
+};
 
 export const mapStateToProps = (state) => ({
   cards: state.cards
