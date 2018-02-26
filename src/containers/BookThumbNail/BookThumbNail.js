@@ -67,8 +67,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 BookThumbNail.propTypes = {
-  loadCards: PropTypes.string,
-  cards: PropTypes.string,
+  loadCards: PropTypes.func,
+  cards: PropTypes.array,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookThumbNail));

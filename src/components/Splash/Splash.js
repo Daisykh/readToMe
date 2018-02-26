@@ -1,6 +1,5 @@
 import React from 'react';
 import './Splash.css';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export const Splash = () =>  {
@@ -15,10 +14,6 @@ export const Splash = () =>  {
       </div>
     </div>
   );
-};
-
-Splash.propTypes = {
-  location: PropTypes.object
 };
 
 export default Splash;
