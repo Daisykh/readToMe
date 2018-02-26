@@ -13,16 +13,21 @@ export class Routes extends Component {
         <Route exact path='/' component={ Splash } />
         <Route exact path='/bookshelf' component={ BookShelf } />
         <Route exact path="/cards/:id" render={ ({match}) => {
-          const id = parseInt(match.params.id, 1);
-          const card = this.props.cards.find( card => {
-            return card.id === id;
-          });
+          const id = parseInt(match.params.id);
+          const card = this.props.cards.find( card => card.id === id);
           if (card) {
             return (
-              <Book {...card}/>
+              <Book {...card} />
             );
-          }
+          } 
 
+          if (!card) {
+            return (
+              <div>
+                <p>Oops! No book here</p>
+              </div>
+            )
+          }
         }} /> 
       </div>
     );
