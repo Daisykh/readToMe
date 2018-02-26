@@ -5,11 +5,80 @@ import { shallow } from 'enzyme';
 import Book from './Book';
 
 describe('Book', () => {
-  it('should match snapshot', () => {
-    const renderedComponent = shallow(<Book />);
 
+  let renderedComponent
+
+  beforeEach(() => {
+    const renderedComponent = shallow(<Book />);
+  });
+
+  it('should match snapshot', () => {
     expect(renderedComponent).toMatchSnapshot();
   })
+
+  it('should have a default recording and activity states of false', () => {
+    const renderedComponent = shallow(<Book />);
+
+    expect(renderedComponent.state('recording')).toEqual(false);
+    expect(renderedComponent.state('recorded')).toEqual(false);
+    expect(renderedComponent.state('submitted')).toEqual(false);
+    expect(renderedComponent.state('feedbackGiven')).toEqual(false);
+  })
+
+  it('function toggleSubmit should set the state of submitted to true', () => {
+    const renderedComponent = shallow(<Book />);
+    const expected = true;
+
+    expect(renderedComponent.state('submitted')).toEqual(false)
+
+    renderedComponent.instance().toggleSubmit()
+
+    expect(renderedComponent.state('submitted')).toEqual(expected)
+  })
+
+  it('function userFeedback should set the state of feedbackGiven to true', () => {
+    const renderedComponent = shallow(<Book />);
+    const expected = true;
+
+    expect(renderedComponent.state('feedbackGiven')).toEqual(false)
+
+    renderedComponent.instance().userFeedback()
+
+    expect(renderedComponent.state('feedbackGiven')).toEqual(expected)
+  })
+
+  // userFeedback should call resetRecord()
+
+  it('function resetRecord should reset the states of recording and recorded to false', () => {
+    const renderedComponent = shallow(<Book />);
+    const expected = true;
+
+    renderedComponent.setState({
+      recording: true,
+      recorded: true,
+    })
+
+    expect(renderedComponent.state('recording')).toEqual(true)
+    expect(renderedComponent.state('recorded')).toEqual(true)
+
+    renderedComponent.instance().resetRecord()
+
+    expect(renderedComponent.state('recording')).toEqual(false)
+    expect(renderedComponent.state('recorded')).toEqual(false)
+
+  })
+
+  it('function userFeedback should call resetRecord()', () => {
+    const renderedComponent = shallow(<Book />);
+
+    expect(renderedComponent.instance().userFeedback()).toBe(true);
+
+    expect(renderedComponent.resetRecord).toHaveBeenCalled();
+  })
+
+
+  // expect(wrapper.instance()._method()).toBe(true);
+    // expect(MyComponent.prototype._method).toHaveBeenCalled();
 })
 
 
@@ -17,14 +86,9 @@ describe('Book', () => {
 
 // submitAudio calls toggleSubmit and userFeedback
 
-// toggleSubmit sets state 
-// userFeedback sets state
 // userFeedback sends an alert
 // userFeedback calls resetRecord
 
-// resetRecord sets state
-
-// toggleRecord sets state
 // toggleRecord calls checkAudio
 
 // checkAudio calls recordAudio when state is recording

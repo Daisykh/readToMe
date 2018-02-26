@@ -1,7 +1,7 @@
 /* eslint-disable */
 // disable above is because of socket.io.
 // there are 4 errors here because I'm still in the 
-// middle of setup
+// middle of setup - console.logs and unused consts)
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
