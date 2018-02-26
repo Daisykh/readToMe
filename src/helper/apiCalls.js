@@ -1,14 +1,14 @@
-const fs = require('browserify-fs');
+// const fs = require('browserify-fs');
 // const myCoolAudio = new Audio();
 // myCoolAudio.src = '../../public/audio-file.flac';
 
 
 export const apiGet = async () => {
-  const url = 'http://localhost:5000/';
-  const response = await fetch(url, {
-    method: "GET",
-  })
-  return await response
+  // const url = 'http://localhost:5000/';
+  // const response = await fetch(url, {
+  //   method: "GET",
+  // })
+  // return await response
 }
 
 export const apiPost = async () => {

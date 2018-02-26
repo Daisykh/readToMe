@@ -1,28 +1,50 @@
-// var getUserMedia = require('get-user-media-promise');
-// var MicrophoneStream = require('microphone-stream');
- 
-// document.getElementById('my-start-button').onclick = function() {
+/* eslint-disable */
 
-//   var micStream = new MicrophoneStream();
- 
-//   getUserMedia({ video: false, audio: true })
-//     .then(function(stream) {
-//       micStream.setStream(stream);
-//     }).catch(function(error) {
-//       console.log(error);
-//     });
- 
-//   micStream.on('data', function(chunk) {
-//     es a new DataView - the underlying audio data is not copied or modified.)
-//     var raw = MicrophoneStream.toRaw(chunk)
- 
-//    });
- 
-//   // or pipe it to another stream
-//   // micStream.pipe(/*...*/);
- 
-//   micStream.on('format', function(format) {
-//     console.log(format);
-//   });
+import React from 'react';
+import { shallow } from 'enzyme';
+import { BookThumbNail, mapStateToProps, mapDispatchToProps, loadCards } from './BookThumbNail';
+import mockData from '../../__mocks__/mockData';
 
-// }
+describe('BookThumbNail', () => {
+  let renderedComponent
+  let mockLoadCards
+  let mockCards
+
+  beforeEach(() => {
+    const mockLoadCards = jest.fn()
+    const mockCards = mockData
+
+    const renderedComponent = 
+    shallow(<BookThumbNail 
+      cards={ mockData }
+      loadCards={ mockLoadCards }
+      />, { disableLifecycleMethods: true });
+  });
+
+  it('should match snapshot', () => {
+    expect(renderedComponent).toMatchSnapshot();
+  })
+
+  it('should map to the store correctly', () => {
+    const mockStore = {
+      cards: mockData
+    }
+    const mapped = mapStateToProps(mockStore)
+
+    expect(mapped).toEqual(mockStore)
+  });
+
+  it('should call the dispatch function when using a function from mapDispatchToProps', () => {
+    const mockDispatch = jest.fn();
+    const mockStore = {
+      cards: mockData
+    }
+    const mapped = mapDispatchToProps(mockDispatch);
+
+    expect(mockDispatch).not.toHaveBeenCalled();
+
+    mapped.loadCards(mockStore);
+
+    expect(mockDispatch).toHaveBeenCalled();
+  });
+})

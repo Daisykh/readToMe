@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import Splash from './Splash';
+import Nav from './Nav';
 
-describe('Splash', () => {
+describe('Nav', () => {
   it('should match snapshot', () => {
-    const renderedComponent = shallow(<Splash />);
+    const renderedComponent = shallow(<Nav />);
 
     expect(renderedComponent).toMatchSnapshot();
   })

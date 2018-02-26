@@ -1,55 +1,56 @@
 import React, { Component } from 'react';
 import mockData from '../../__mocks__/mockData';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/index';
-import Book from '../Book/Book';
-import { Link } from 'react-router-dom';
-import { apiPost } from '../../helper/apiCalls';
-import './BookThumbNail.css'
+import { Link, withRouter } from 'react-router-dom';
+// import { apiPost } from '../../helper/apiCalls';
+import './BookThumbNail.css';
 // const recognizeMic = require('watson-speech/speech-to-text/recognize-microphone');
 
-
 export class BookThumbNail extends Component {
-  async componentDidMount() {
+
+  componentDidMount() {
     const flashCards = mockData;
-    const response = await apiPost();
-    await console.log(response);
-    await this.props.loadCards(flashCards);
+    // const response = await apiPost();
+    // await console.log(response);
+    this.props.loadCards(flashCards);
   }
 
-  renderedThumbNails = () => this.props.cards.map( (card) => {
-      const url = card.img
-      return (
-        <div className="thumb">
-          <Link to={`/cards/${card.id}`} >
-              <div className={card.id}>
-                  <img className="thumb__img" src={url}/>
-              </div>
-              <div className="thumb__details">
-                <div className="thumb__title"></div>
-              </div>
-          </Link>
-        </div>
-      )
-    })
+  renderedThumbNails = () => this.props.cards.map( (card, index) => {
+    const url = card.img;
+
+    return (
+      <div className="thumb" key={index}>
+        <Link to={`/cards/${card.id}`} >
+          <div className={card.id}>
+            <img className="thumb__img" src={url} alt="Book cover art"/>
+          </div>
+          <div className="thumb__details">
+            <div className="thumb__title"></div>
+          </div>
+        </Link>
+      </div>
+    );
+  })
   
 
   render() {
-     return (
+    return (
       <div className="row-container">
         <div className="row">
           <div className="row__inner parent">
-          { this.renderedThumbNails() }
+            { this.renderedThumbNails() }
           </div>
         </div>
         <div className="row">
           <div className="row__inner parent">
-          { this.renderedThumbNails() }
+            { this.renderedThumbNails() }
           </div>
         </div>
         <div className="row">
           <div className="row__inner parent">
-          { this.renderedThumbNails() }
+            { this.renderedThumbNails() }
           </div>
         </div>
       </div>
@@ -57,12 +58,17 @@ export class BookThumbNail extends Component {
   }
 }
 
-export const mapStateToProps = (store) => ({
-  cards: store.cards
-})
+export const mapStateToProps = (state) => ({
+  cards: state.cards
+});
 
 export const mapDispatchToProps = (dispatch) => ({
   loadCards: cards => dispatch(loadCards(cards))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookThumbNail);
+BookThumbNail.propTypes = {
+  loadCards: PropTypes.func,
+  cards: PropTypes.array,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookThumbNail));

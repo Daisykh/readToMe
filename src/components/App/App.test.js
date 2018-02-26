@@ -1,12 +1,18 @@
-import React from 'react';
-// import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
-import App from './App';
+/* eslint-disable */
+
+import React from 'react'
+import { shallow } from 'enzyme'
+import App from './App'
 
 describe('App', () => {
-  it.skip('should match snapshot', () => {
-    const renderedComponent = shallow(<App />);
+  let renderedComponent
 
-    expect(renderedComponent).toMatchSnapshot();
+  beforeEach(() => {
+    renderedComponent = shallow(<App />)
+  })
+
+  it('should match snapshot', () => {
+
+    expect(renderedComponent).toMatchSnapshot()
   })
 })
