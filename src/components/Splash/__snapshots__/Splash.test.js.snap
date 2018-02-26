@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Splash should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        id="layer"
+>
+        <div
+                id="blur"
+        />
+        <h1
+                id="logo"
+        >
+                Read To Me
+        </h1>
+        <Link
+                className="link-button"
+                replace={false}
+                to="/bookshelf"
+        >
+                1st Grade
+        </Link>
+        <Link
+                className="link-button"
+                replace={false}
+                to="/bookshelf"
+        >
+                2nd Grade
+        </Link>
+        <Link
+                className="link-button"
+                replace={false}
+                to="/bookshelf"
+        >
+                3rd Grade
+        </Link>
+</div>,
+      "id": "splash-page",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            id="blur"
+/>,
+          <h1
+            id="logo"
+>
+            Read To Me
+</h1>,
+          <Link
+            className="link-button"
+            replace={false}
+            to="/bookshelf"
+>
+            1st Grade
+</Link>,
+          <Link
+            className="link-button"
+            replace={false}
+            to="/bookshelf"
+>
+            2nd Grade
+</Link>,
+          <Link
+            className="link-button"
+            replace={false}
+            to="/bookshelf"
+>
+            3rd Grade
+</Link>,
+        ],
+        "id": "layer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "id": "blur",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Read To Me",
+            "id": "logo",
+          },
+          "ref": null,
+          "rendered": "Read To Me",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "1st Grade",
+            "className": "link-button",
+            "replace": false,
+            "to": "/bookshelf",
+          },
+          "ref": null,
+          "rendered": "1st Grade",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "2nd Grade",
+            "className": "link-button",
+            "replace": false,
+            "to": "/bookshelf",
+          },
+          "ref": null,
+          "rendered": "2nd Grade",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "3rd Grade",
+            "className": "link-button",
+            "replace": false,
+            "to": "/bookshelf",
+          },
+          "ref": null,
+          "rendered": "3rd Grade",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          id="layer"
+>
+          <div
+                    id="blur"
+          />
+          <h1
+                    id="logo"
+          >
+                    Read To Me
+          </h1>
+          <Link
+                    className="link-button"
+                    replace={false}
+                    to="/bookshelf"
+          >
+                    1st Grade
+          </Link>
+          <Link
+                    className="link-button"
+                    replace={false}
+                    to="/bookshelf"
+          >
+                    2nd Grade
+          </Link>
+          <Link
+                    className="link-button"
+                    replace={false}
+                    to="/bookshelf"
+          >
+                    3rd Grade
+          </Link>
+</div>,
+        "id": "splash-page",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              id="blur"
+/>,
+            <h1
+              id="logo"
+>
+              Read To Me
+</h1>,
+            <Link
+              className="link-button"
+              replace={false}
+              to="/bookshelf"
+>
+              1st Grade
+</Link>,
+            <Link
+              className="link-button"
+              replace={false}
+              to="/bookshelf"
+>
+              2nd Grade
+</Link>,
+            <Link
+              className="link-button"
+              replace={false}
+              to="/bookshelf"
+>
+              3rd Grade
+</Link>,
+          ],
+          "id": "layer",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "blur",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Read To Me",
+              "id": "logo",
+            },
+            "ref": null,
+            "rendered": "Read To Me",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "1st Grade",
+              "className": "link-button",
+              "replace": false,
+              "to": "/bookshelf",
+            },
+            "ref": null,
+            "rendered": "1st Grade",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "2nd Grade",
+              "className": "link-button",
+              "replace": false,
+              "to": "/bookshelf",
+            },
+            "ref": null,
+            "rendered": "2nd Grade",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "3rd Grade",
+              "className": "link-button",
+              "replace": false,
+              "to": "/bookshelf",
+            },
+            "ref": null,
+            "rendered": "3rd Grade",
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from './Header';
+import Routes from './Routes';
 
-describe('Header', () => {
+describe('Routes', () => {
   it('should match snapshot', () => {
-    const renderedComponent = shallow(<Header />);
+    const renderedComponent = shallow(<Routes />);
 
     expect(renderedComponent).toMatchSnapshot();
   })

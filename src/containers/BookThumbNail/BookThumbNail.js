@@ -3,18 +3,18 @@ import mockData from '../../__mocks__/mockData';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/index';
 import Book from '../Book/Book';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { apiPost } from '../../helper/apiCalls';
 import './BookThumbNail.css'
 // const recognizeMic = require('watson-speech/speech-to-text/recognize-microphone');
 
-
 export class BookThumbNail extends Component {
-  async componentDidMount() {
+
+  componentDidMount() {
     const flashCards = mockData;
-    const response = await apiPost();
-    await console.log(response);
-    await this.props.loadCards(flashCards);
+    // const response = await apiPost();
+    // await console.log(response);
+    this.props.loadCards(flashCards);
   }
 
   renderedThumbNails = () => this.props.cards.map( (card) => {
@@ -57,12 +57,12 @@ export class BookThumbNail extends Component {
   }
 }
 
-export const mapStateToProps = (store) => ({
-  cards: store.cards
+const mapStateToProps = (state) => ({
+  cards: state.cards
 })
 
-export const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   loadCards: cards => dispatch(loadCards(cards))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookThumbNail);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookThumbNail));
