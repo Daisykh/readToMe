@@ -1,6 +1,5 @@
 import React from 'react';
 import BookThumbNail from '../../containers/BookThumbNail/BookThumbNail';
-import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import './BookShelf.css';
 
@@ -11,7 +10,7 @@ export const BookShelf = () =>  {
       <BookThumbNail />
     </div>
   );
-}
+};
 
 export default BookShelf;
 

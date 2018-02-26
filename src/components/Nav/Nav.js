@@ -1,13 +1,13 @@
-import React from 'react'
-import './Nav.css'
+import React from 'react';
+import './Nav.css';
 import { NavLink } from 'react-router-dom';
 
 export const Nav = () => {
   return (
     <div className="Nav">
-     <nav role="navigation">
-      <div id="menuToggle">
-       <input type="checkbox" />
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
 
           <span></span>
           <span></span>
@@ -22,7 +22,7 @@ export const Nav = () => {
       </nav>
     </div>
   );
-}
+};
 
 
 export default Nav;

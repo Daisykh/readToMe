@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { cardsReducer } from './cardsReducer';
 import * as actions from '../../actions';
 import mockData from '../../__mocks__/mockData';
