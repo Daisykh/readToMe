@@ -32,14 +32,14 @@ ShallowWrapper {
                     id=""
                     onClick={[Function]}
           >
-                    Read To Me!
+                    Record
           </button>
           <button
                     className="enabled-submit"
                     id="disabled-submit"
                     onClick={[Function]}
           >
-                    Check
+                    Check Reading
           </button>
 </div>,
       ],
@@ -90,14 +90,14 @@ ShallowWrapper {
               id=""
               onClick={[Function]}
 >
-              Read To Me!
+              Record
 </button>,
             <button
               className="enabled-submit"
               id="disabled-submit"
               onClick={[Function]}
 >
-              Check
+              Check Reading
 </button>,
           ],
           "className": "button-display",
@@ -109,13 +109,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Read To Me!",
+              "children": "Record",
               "className": "enabled-record",
               "id": "",
               "onClick": [Function],
             },
             "ref": null,
-            "rendered": "Read To Me!",
+            "rendered": "Record",
             "type": "button",
           },
           Object {
@@ -123,13 +123,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Check",
+              "children": "Check Reading",
               "className": "enabled-submit",
               "id": "disabled-submit",
               "onClick": [Function],
             },
             "ref": null,
-            "rendered": "Check",
+            "rendered": "Check Reading",
             "type": "button",
           },
         ],
@@ -159,14 +159,14 @@ ShallowWrapper {
                         id=""
                         onClick={[Function]}
             >
-                        Read To Me!
+                        Record
             </button>
             <button
                         className="enabled-submit"
                         id="disabled-submit"
                         onClick={[Function]}
             >
-                        Check
+                        Check Reading
             </button>
 </div>,
         ],
@@ -217,14 +217,14 @@ ShallowWrapper {
                 id=""
                 onClick={[Function]}
 >
-                Read To Me!
+                Record
 </button>,
               <button
                 className="enabled-submit"
                 id="disabled-submit"
                 onClick={[Function]}
 >
-                Check
+                Check Reading
 </button>,
             ],
             "className": "button-display",
@@ -236,13 +236,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Read To Me!",
+                "children": "Record",
                 "className": "enabled-record",
                 "id": "",
                 "onClick": [Function],
               },
               "ref": null,
-              "rendered": "Read To Me!",
+              "rendered": "Record",
               "type": "button",
             },
             Object {
@@ -250,13 +250,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Check",
+                "children": "Check Reading",
                 "className": "enabled-submit",
                 "id": "disabled-submit",
                 "onClick": [Function],
               },
               "ref": null,
-              "rendered": "Check",
+              "rendered": "Check Reading",
               "type": "button",
             },
           ],

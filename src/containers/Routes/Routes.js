@@ -26,7 +26,7 @@ export class Routes extends Component {
               <div>
                 <p>Oops! No book here</p>
               </div>
-            )
+            );
           }
         }} /> 
       </div>
