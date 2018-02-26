@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export const Nav = () => {
   return (
     <div className="Nav">
-      <nav role="navigation">
+      <nav>
         <div id="menuToggle">
           <input type="checkbox" />
 

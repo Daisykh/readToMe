@@ -24,7 +24,7 @@ export class BookThumbNail extends Component {
       <div className="thumb" key={index}>
         <Link to={`/cards/${card.id}`} >
           <div className={card.id}>
-            <img className="thumb__img" src={url}/>
+            <img className="thumb__img" src={url} alt="Book cover art"/>
           </div>
           <div className="thumb__details">
             <div className="thumb__title"></div>
@@ -58,11 +58,11 @@ export class BookThumbNail extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   cards: state.cards
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loadCards: cards => dispatch(loadCards(cards))
 });
 

@@ -17,9 +17,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <nav
-        role="navigation"
->
+      "children": <nav>
         <div
                 id="menuToggle"
         >
@@ -111,7 +109,6 @@ ShallowWrapper {
                     </li>
           </ul>
 </div>,
-        "role": "navigation",
       },
       "ref": null,
       "rendered": Object {
@@ -344,9 +341,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <nav
-          role="navigation"
->
+        "children": <nav>
           <div
                     id="menuToggle"
           >
@@ -438,7 +433,6 @@ ShallowWrapper {
                         </li>
             </ul>
 </div>,
-          "role": "navigation",
         },
         "ref": null,
         "rendered": Object {

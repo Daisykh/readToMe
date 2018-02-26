@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Bad+Script|Codystar');
-@import url('https://fonts.googleapis.com/css?family=Montserrat')
+@import url('https://fonts.googleapis.com/css?family=Codystar');
 
-* {
-  font-family: 'Montserrat', sans-serif;
-}
 
 .App {
   text-align: center; }
