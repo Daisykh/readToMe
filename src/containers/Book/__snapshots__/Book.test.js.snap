@@ -1,3 +1,277 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Book should match snapshot 1`] = `undefined`;
+exports[`Book should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Book />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Unknown />,
+        <img
+          alt="book display"
+          src={undefined}
+/>,
+        <p />,
+        <div
+          className="button-display"
+>
+          <button
+                    className="enabled-record"
+                    id=""
+                    onClick={[Function]}
+          >
+                    Read To Me!
+          </button>
+          <button
+                    className="enabled-submit"
+                    id="disabled-submit"
+                    onClick={[Function]}
+          >
+                    Check
+          </button>
+</div>,
+      ],
+      "className": "Book",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "book display",
+          "src": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              className="enabled-record"
+              id=""
+              onClick={[Function]}
+>
+              Read To Me!
+</button>,
+            <button
+              className="enabled-submit"
+              id="disabled-submit"
+              onClick={[Function]}
+>
+              Check
+</button>,
+          ],
+          "className": "button-display",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Read To Me!",
+              "className": "enabled-record",
+              "id": "",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Read To Me!",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Check",
+              "className": "enabled-submit",
+              "id": "disabled-submit",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Check",
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Unknown />,
+          <img
+            alt="book display"
+            src={undefined}
+/>,
+          <p />,
+          <div
+            className="button-display"
+>
+            <button
+                        className="enabled-record"
+                        id=""
+                        onClick={[Function]}
+            >
+                        Read To Me!
+            </button>
+            <button
+                        className="enabled-submit"
+                        id="disabled-submit"
+                        onClick={[Function]}
+            >
+                        Check
+            </button>
+</div>,
+        ],
+        "className": "Book",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "book display",
+            "src": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                className="enabled-record"
+                id=""
+                onClick={[Function]}
+>
+                Read To Me!
+</button>,
+              <button
+                className="enabled-submit"
+                id="disabled-submit"
+                onClick={[Function]}
+>
+                Check
+</button>,
+            ],
+            "className": "button-display",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Read To Me!",
+                "className": "enabled-record",
+                "id": "",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Read To Me!",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Check",
+                "className": "enabled-submit",
+                "id": "disabled-submit",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Check",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

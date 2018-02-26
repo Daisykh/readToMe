@@ -53,10 +53,10 @@ class Book extends Component {
     });
   };
 
-  submitAudio = async () => {
+  submitAudio = () => {
     // await console.log('submit selected');
-    await this.toggleSubmit();
-    await this.userFeedback();
+    this.toggleSubmit();
+    this.userFeedback();
   };
 
   toggleSubmit = () => {
@@ -65,8 +65,8 @@ class Book extends Component {
     });
   };
 
-  userFeedback = async () => {
-    alert('Good job! You read the passage correctly');
+  userFeedback = () => {
+    alert('Good job! You read the sentence correctly! Keep reading!');
     this.resetRecord();
     this.setState({
       feedbackGiven: true
