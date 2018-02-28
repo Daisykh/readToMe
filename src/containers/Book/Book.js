@@ -1,8 +1,3 @@
-/* eslint-disable */
-// disable above is because of socket.io.
-// there are 4 errors here because I'm still in the 
-// middle of setup - console.logs and unused consts)
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
@@ -11,6 +6,9 @@ const getUserMedia = require('get-user-media-promise');
 const MicrophoneStream = require('microphone-stream');
 // const socket = io('http://localhost:5000/');
 const io = require('socket.io-client');
+var ss = require('socket.io-stream');
+const inspect = require('inspect-stream');
+
 
 class Book extends Component {
   constructor(props) {
@@ -21,25 +19,30 @@ class Book extends Component {
       recorded: false, 
       submitted: false,
       feedbackGiven: false,
+      endpoint: "http://localhost:5000"
     };
 
-    this.micStream ;
+    this.micStream;
+    this.testSocket;
   }
 
   createMic = () => {
-    this.micStream = new MicrophoneStream();
+    this.micStream = new MicrophoneStream({ objectMode: false });
   }
 
-  recordAudio = async () => {
-    // console.log('recording');
-    const testSocket = io.connect('http://localhost:5000');
-    testSocket.on('connect', (data) => {
-      testSocket.emit('join', 'Hello World from client');
-    });
+  recordAudio = () => {
+    console.log('recording');
 
+    // socket setup
+    const socket = io.connect(this.state.endpoint);
+    const socketStream = ss.createStream({ objectMode: false });
+    ss(socket).emit('audio', socketStream)
+
+    // mic setup
     this.createMic();
-    // console.log('record selected');
     const micStream = this.micStream;
+
+    // grab mic input
     getUserMedia({ video: false, audio: true })
       .then(function(stream) {
         micStream.setStream(stream);
@@ -51,10 +54,13 @@ class Book extends Component {
       const raw = MicrophoneStream.toRaw(chunk);
       console.log(raw);
     });
+
+    // pipe to server
+    this.micStream.pipe(socketStream)
   };
 
   submitAudio = () => {
-    // await console.log('submit selected');
+    console.log('submit selected');
     this.toggleSubmit();
     this.userFeedback();
   };
@@ -78,11 +84,12 @@ class Book extends Component {
       recording: false,
       recorded: false, 
     });
+    this.testSocket.emit('disconnect');
   };
 
   toggleRecord = () => {
     const recording = !this.state.recording;
-    // console.log('toggled');
+    console.log('toggled');
     this.setState({ 
       recording: recording,
       submitted: false,
@@ -101,7 +108,7 @@ class Book extends Component {
   };
 
   stopAudio = () => {
-    // console.log('stop selected');
+    console.log('stop selected');
     this.micStream.stop();
     this.setState({
       recorded: true

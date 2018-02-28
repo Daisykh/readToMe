@@ -67,13 +67,13 @@ const mockData = [
 
   {
     id: 12,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'https://images.penguinrandomhouse.com/cover/9780739339275',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 
   {
     id: 13,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/51tDB9woJmL._SX365_BO1,204,203,200_.jpg',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 

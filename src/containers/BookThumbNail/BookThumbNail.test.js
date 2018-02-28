@@ -10,7 +10,11 @@ describe('BookThumbNail', () => {
   let mockLoadCards
   let mockCards
 
-  beforeEach(() => {
+  // beforeEach(() => {
+
+  // });
+
+  it('should match snapshot', () => {
     const mockLoadCards = jest.fn()
     const mockCards = mockData
 
@@ -19,9 +23,6 @@ describe('BookThumbNail', () => {
       cards={ mockData }
       loadCards={ mockLoadCards }
       />, { disableLifecycleMethods: true });
-  });
-
-  it('should match snapshot', () => {
     expect(renderedComponent).toMatchSnapshot();
   })
 
