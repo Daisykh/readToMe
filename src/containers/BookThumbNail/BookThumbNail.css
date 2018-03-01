@@ -32,7 +32,7 @@ a {
 
 .row {
   margin: 20px 0px;
-  height: 335px;
+  height: 360px;
 }
 
 .row__inner {
@@ -41,7 +41,7 @@ a {
   white-space: nowrap;
   margin: 20px 0px 0px 0px;
   padding: 20px 0px 5px 0px;
-  height: 315px;
+  height: 355px;
   overflow-y: scroll;
   overflow-x: visible;
 }
@@ -103,4 +103,11 @@ a {
 .row-container {
   align-self: center;
   width: 80%;
+}
+
+.row-title {
+  text-align: left;
+  margin: 45px 30px 0px 0px;
+  font-family: 'Codystar', cursive;
+   color: #333332;
 }

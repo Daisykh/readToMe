@@ -1,11 +1,12 @@
 #header-section {
-/*  display: flex;
-  flex-direction: row;
-  justify-content: space-between;*/
+  background: #333332;
+  box-shadow: 3px 3px 3px grey; 
+  padding: 5px 0px 10px 0px;
 }
 
-h2 {
+.title {
    font-family: 'Codystar', cursive;
    font-size: 30px;
-   color: #333332;
+   color: #FFFFFF;
 }
+

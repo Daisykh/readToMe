@@ -10,18 +10,27 @@ import Header from '../../components/Header/Header';
 // const ss = require('socket.io-stream');
 // const inspect = require('inspect-stream');
 
+import { ReactReader } from 'react-reader';
+import { createAlert } from 'react-redux-alerts';
+import sizeMe from 'react-sizeme';
+import Confetti from 'react-confetti';
+
+// import EReader from '../../EReader/EReader'
+
 class Book extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: '',
-      selectedValue: 'The quick brown fox jumps over the lazy dog',
+      inputValue: 'Read to me!',
+      selectedValue: '',
       supportVoice: 'webkitSpeechRecognition' in window,
       recording: false,
       recorded: false, 
       submitted: false,
       feedbackGiven: false,
-      endpoint: "http://localhost:5000"
+      endpoint: "http://localhost:5000",
+      clicked: false,
+      correct: '',
     };
 
       this.micStream;
@@ -182,15 +191,27 @@ class Book extends Component {
 
   compareAudio = () => {
     if(this.state.inputValue === this.state.selectedValue.toLowerCase()) {
+      this.setState({
+        correct: true,
+      })
       alert('Good job! You read the sentence correctly! Keep reading!');
     } else {
+      this.setState({
+        correct: false,
+      })
       alert('Good effort - try one more time');
     }
   }
 
+  handleClick = (e) => {
+    this.setState({
+      selected: true,
+      selectedValue: "Zebra has a cough All his stripes have fallen off"
+    })
+  }
+
   render() {
 
-    const url = this.props.img;
     const activeRecord = this.state.recording ? "recording" : "enabled-record" ;
     const disableRecord = this.state.recorded && !this.state.recording ? "disabled-record": "";
     const disabledSubmit = this.state.recorded && !this.state.recording ? "" : "disabled-submit";
@@ -198,12 +219,23 @@ class Book extends Component {
     const recordText =this.state.recording ? "Stop Recording" : "Record" ;
     const { transcript, resetTranscript, browserSupportsSpeechRecognition } = this.props
 
+    const sourceFile = this.state.selected ? 
+    <img onClick={this.handleClick} src={require("./StillAndText.png")} alt="book display"/> : 
+    <img onClick={this.handleClick} src={require("./Cover1.png")} alt="book display"/>
+
+    const feedbackAnimation = this.state.correct ? "sparkles" : "wiggle";
+    const spoken = "spoken";
+
     return (
       <div className="Book">
         <Header />
-        <img src={url} alt="book display"/>
-        <p>{this.props.text}</p>
-        <p>{this.state.inputValue}</p>
+        <h3 className="book-title">Doctor Kangaroo</h3>
+        { sourceFile }
+        
+        <p>{this.state.selectedValue}</p>
+        <span>
+        <p className={feedbackAnimation}>{this.state.inputValue}</p>
+        </span>
         <div className="button-display">
           <button onClick={ this.toggleRecord } id={disableRecord} className={activeRecord} >{recordText}</button>
           <button onClick={ this.submitAudio } id={disabledSubmit} className={successfulSubmit} >Check Reading</button>
@@ -212,7 +244,6 @@ class Book extends Component {
     );
   }
 }
-
 
 Book.propTypes = {
   img: PropTypes.string,

@@ -1,7 +1,7 @@
 const mockData = [
   {
     id: 1,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/61s6N1hwvIL._SX260_.jpg',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 
@@ -67,7 +67,7 @@ const mockData = [
 
   {
     id: 12,
-    img: 'https://images.penguinrandomhouse.com/cover/9780739339275',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/51w81n%2BaOeL._SX332_BO1,204,203,200_.jpg',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 
@@ -85,31 +85,31 @@ const mockData = [
 
   {
     id: 15,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'https://cdn.usborne.com/catalogue/covers/eng/max_covers/9781409582182.jpg?width=960&mode=min',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 
   {
     id: 16,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/41RCu-vYqXL._SX376_BO1,204,203,200_.jpg',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 
   {
     id: 17,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/51S1A3k4cIL._SX338_BO1,204,203,200_.jpg',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 
   {
     id: 18,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'https://www.funbrain.com/books/diary_of_a_wimpy_kid/pages/wk-1-1.png',
     text: 'The quick brown fox jumps over the lazy dog',
   },
 
   {
     id: 19,
-    img: 'https://www.scholastic.com/content5/media/products/24/9780545964524_mres.jpg',
+    img: 'http://www.virtuouspublications.in/wp-content/uploads/2014/12/9789383449330.jpg',
     text: 'The quick brown fox jumps over the lazy dog',
   }
 ]
