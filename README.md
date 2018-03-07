@@ -17,6 +17,8 @@ ReadToMe is an app the contains a bookshelf for young readers and allows them to
 
 Clone down repo and run `npm install`
 
+Clone down node.js express backend and run on a separate port: https://github.com/wagasky/expressBackend
+
 ## Resources
 
 Made with Create React App
