@@ -4,6 +4,15 @@ Being a proficient reader by the 3rd grade is important milestone for students. 
 
 ReadToMe is an app the contains a bookshelf for young readers and allows them to get feedback about how they are reading aloud. Readers can select a book and read. They can also record themselves reading and get feedback about how accurate their reading matched the selected text. ReadToMe is a javascript application built with React, Redux and Router and utizlizes the Watson Natural Language Api for transcription. I also built a node.js express server and websocket for real-time audio streaming. I am in the process of user and A/B testing with a 3rd grade classroom in Denver to refine the user experience, feedback about reading, and point system for young readers. 
 
+## UI
+
+![screen shot 2018-03-07 at 10 19 00 am](https://user-images.githubusercontent.com/24358415/37107350-58fbc85e-21f1-11e8-889f-fe47b200a912.png)
+
+![screen shot 2018-03-07 at 10 22 33 am](https://user-images.githubusercontent.com/24358415/37107408-80842204-21f1-11e8-9d39-3587fb391aa3.png)
+
+![screen shot 2018-03-07 at 10 20 16 am](https://user-images.githubusercontent.com/24358415/37107426-87d08bd8-21f1-11e8-9d98-82afad90574f.png)
+
+
 ## Installation
 
 Clone down repo and run `npm install`
