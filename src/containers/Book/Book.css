@@ -8,6 +8,10 @@ img {
 p {
   font-family: 'Montserrat', sans-serif;
   color: #333332;
+  width: 60vw;
+  height: 100px;
+  text-align: center;
+  justify-content: center;
 }
 
 button {
@@ -54,6 +58,8 @@ button {
 }
 
 .sparkles {
+  transition: 2000ms all;
+  background: green;
   
 }
 

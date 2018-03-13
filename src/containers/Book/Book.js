@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { updateReader } from '../../actions/index';
 // import SpeechRecognition from 'react-speech-recognition'
 import './Book.css';
 import Header from '../../components/Header/Header';
@@ -41,6 +43,8 @@ class Book extends Component {
 
   componentDidMount() {
     this.transcribeSpeech()
+    const lifeTimeCount = this.pullFromStorage('lifeTimeCount')
+    this.setState({ lifeTimeCount })
   }
 
   // createMic = () => {
@@ -193,23 +197,43 @@ class Book extends Component {
     }
   }
 
-  compareAudio = () => {
+  compareAudio = async () => {
     if(this.state.inputValue === this.state.selectedValue.toLowerCase()) {
       const newStreakCount = this.state.streakCount + 1;
       const newLifeTimeCount = this.state.lifeTimeCount + 1;
-      this.setState({
+      await this.setState({
         correct: true,
         streakCount: newStreakCount,
         lifeTimeCount: newLifeTimeCount,
       })
+      await this.putIntoStorage('streakCount', this.state.streakCount);
+      await this.putIntoStorage('lifeTimeCount', this.state.lifeTimeCount);
+
       alert('Good job! You read the sentence correctly! Keep reading!');
     } else {
-      this.setState({
+      await this.setState({
         correct: false,
         streakCount: 0
       })
+      await this.putIntoStorage('streakCount', this.state.streakCount);
+      await this.putIntoStorage('lifeTimeCount', this.state.lifeTimeCount);
       alert('Good effort - try one more time');
     }
+
+    
+  }
+
+  putIntoStorage = (category, value) =>  {
+    const stringifiedObject = JSON.stringify(value);
+
+    localStorage.setItem(category, value);
+  }
+
+  pullFromStorage = (category) => {
+    const retrievedObject = localStorage.getItem(category);
+    const parsedObject = JSON.parse(retrievedObject);
+
+    return parsedObject;
   }
 
   handleClick = (e) => {
@@ -240,7 +264,6 @@ class Book extends Component {
         <Header />
         <h3 className="book-title">Doctor Kangaroo</h3>
         { sourceFile }
-        
         <p>{this.state.selectedValue}</p>
         <span>
         <p className={feedbackAnimation}>{this.state.inputValue}</p>
