@@ -1,6 +1,3 @@
-/*span is a hamburger menu represention*/
-/**/
-
 a
 {
   text-decoration: none;
@@ -18,10 +15,6 @@ a:active
 {
   transform: none;
 }
-
-/*.menuFlex {
-  display
-}*/
 
 #menuToggle
 {
@@ -86,6 +79,7 @@ a:active
  * Transform all the slices of hamburger
  * into a crossmark.
  */
+
 #menuToggle input:checked ~ span
 {
   opacity: 1;
@@ -96,6 +90,7 @@ a:active
 /*
  * But let's hide the middle one.
  */
+
 #menuToggle input:checked ~ span:nth-last-child(3)
 {
   opacity: 0;
@@ -103,8 +98,9 @@ a:active
 }
 
 /*
- * Ohyeah and the last one should go the other direction
+ * The last span should go the other direction
  */
+
 #menuToggle input:checked ~ span:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(0, -1px);
@@ -114,6 +110,7 @@ a:active
  * Make this absolute positioned
  * at the top left of the screen
  */
+ 
 #menu
 {
   position: absolute;

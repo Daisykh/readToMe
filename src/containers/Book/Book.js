@@ -9,7 +9,7 @@ import Header from '../../components/Header/Header';
 // const io = require('socket.io-client');
 // const ss = require('socket.io-stream');
 // const inspect = require('inspect-stream');
-
+import EReader from '../EReader/EReader'
 import { ReactReader } from 'react-reader';
 import { createAlert } from 'react-redux-alerts';
 import sizeMe from 'react-sizeme';
@@ -31,6 +31,8 @@ class Book extends Component {
       endpoint: "http://localhost:5000",
       clicked: false,
       correct: '',
+      streakCount: 0,
+      lifeTimeCount: 0,
     };
 
       this.micStream;
@@ -106,6 +108,8 @@ class Book extends Component {
       recording: false,
       recorded: false, 
     });
+    console.log('streak: ', this.state.streakCount)
+    console.log('all: ', this.state.lifeTimeCount)
     // this.testSocket.emit('disconnect');
   };
 
@@ -191,13 +195,18 @@ class Book extends Component {
 
   compareAudio = () => {
     if(this.state.inputValue === this.state.selectedValue.toLowerCase()) {
+      const newStreakCount = this.state.streakCount + 1;
+      const newLifeTimeCount = this.state.lifeTimeCount + 1;
       this.setState({
         correct: true,
+        streakCount: newStreakCount,
+        lifeTimeCount: newLifeTimeCount,
       })
       alert('Good job! You read the sentence correctly! Keep reading!');
     } else {
       this.setState({
         correct: false,
+        streakCount: 0
       })
       alert('Good effort - try one more time');
     }

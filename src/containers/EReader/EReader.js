@@ -1,79 +1,168 @@
-
-import React, {Component} from 'react'
-import { ReactReader } from 'react-reader'
+import {
+  EpubView, // Underlaying epub-canvas (wrapper for epub.js iframe)
+  EpubViewStyle, // Styles for EpubView, you can pass it to the instance as a style prop for customize it
+  ReactReader, // A simple epub-reader with left/right button and chapter navigation
+  ReactReaderStyle // Styles for the epub-reader it you need to customize it
+} from 'react-reader'
+// import React, {Component} from 'react'
+// import { EpubView } from 'react-reader'
 import styles from './EReader.css'
+// import React, {Component} from 'react'
+// import {ReactReader} from '../src'
+// import styles from './App.css'
+// import logo from './react-reader.svg'
 
-const storage = global.localStorage || null
+import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
+import Swipeable from 'react-swipeable'
+// import {EpubView} from '..'
+import defaultStyles from './style'
 
-class EReader extends Component {
+class TocItem extends PureComponent {
+  setLocation = () => {
+    this.props.setLocation(this.props.href)
+  }
+  render () {
+    const {label, styles} = this.props
+    return (
+      <button onClick={this.setLocation} style={styles}>{label}</button>
+    )
+  }
+}
+
+TocItem.propTypes = {
+  label: PropTypes.string,
+  href: PropTypes.string,
+  setLocation: PropTypes.func,
+  styles: PropTypes.object
+}
+
+class EReader extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      fullscreen: process.env.NODE_ENV !== 'production',
-      location: (storage && storage.getItem('epub-location')) ? storage.getItem('epub-location') : 2,
-      largeText: false
+      expanedToc: false,
+      toc: false
     }
-    this.rendition = null
   }
-
-  toggleFullscreen = () => {
+  toggleToc = () => {
     this.setState({
-      fullscreen: !this.state.fullscreen
-    }, () => {
-      setTimeout(() => {
-        const evt = document.createEvent('UIEvents')
-        evt.initUIEvent('resize', true, false, global, 0)
-      }, 1000)
+      expanedToc: !this.state.expanedToc
     })
   }
 
-  onLocationChanged = (location) => {
+  next = () => {
+    this.refs.reader.nextPage()
+  }
+
+  prev = () => {
+    this.refs.reader.prevPage()
+  }
+
+  onTocChange = (toc) => {
+    const {tocChanged} = this.props
     this.setState({
-      location
-    }, () => {
-      storage && storage.setItem('epub-location', location)
-    })
+      toc: toc
+    }, () => tocChanged && tocChanged(toc))
   }
 
-  onToggleFontSize = () => {
-    const nextState = !this.state.largeText
-    this.setState({
-      largeText: nextState
-    }, () => {
-      this.rendition.themes.fontSize(nextState ? '140%' : '100%')
-    })
-  }
-
-  getRendition = (rendition) => {
-    // Set inital font-size, and add a pointer to rendition for later updates
-    const {largeText} = this.state
-    this.rendition = rendition
-    rendition.themes.fontSize(largeText ? '140%' : '100%')
-  }
-
-  render () {
-    const {fullscreen, location} = this.state
+  renderToc () {
+    const {toc, expanedToc} = this.state
+    const {styles} = this.props
     return (
-      <div className={styles.container}>
-        <div className={styles.bar}>
-          <button onClick={this.toggleFullscreen} className={styles.closeLink}>
-            Use full browser window
-            <span className={styles.closeIcon} />
-          </button>
+      <div>
+        <div style={styles.tocArea}>
+          <div style={styles.toc}>
+            {toc.map((item, i) =>
+              <TocItem key={item.href} {...item} setLocation={this.setLocation} styles={styles.tocAreaButton} />
+            )}
+          </div>
         </div>
-        <div className={fullscreen ? styles.readerHolderFullscreen : styles.readerHolder}>
-          <ReactReader
-            url={'https://s3-eu-west-1.amazonaws.com/react-reader/alice.epub'}
-            locationChanged={this.onLocationChanged}
-            title={'Alice in wonderland'}
-            location={location}
-            getRendition={this.getRendition}
-          />
-          <button className={styles.toggleFontSize} onClick={this.onToggleFontSize}>Toggle font-size</button>
-        </div>
+        {expanedToc && <div style={styles.tocBackground} onClick={this.toggleToc} />}
       </div>
     )
   }
+
+  setLocation = (loc) => {
+    const {locationChanged} = this.props
+    this.setState({
+      expanedToc: false
+    }, () => locationChanged && locationChanged(loc))
+  }
+
+  renderTocToggle () {
+    const {expanedToc} = this.state
+    const {styles} = this.props
+    return (
+      <button style={Object.assign({}, styles.tocButton, expanedToc ? styles.tocButtonExpaned : {})} onClick={this.toggleToc}>
+        <span style={Object.assign({}, styles.tocButtonBar, styles.tocButtonBarTop)} />
+        <span style={Object.assign({}, styles.tocButtonBar, styles.tocButtonBottom)} />
+      </button>
+    )
+  }
+
+  render () {
+    const {url, title, showToc, loadingView, epubOptions, styles, getRendition, locationChanged, location, swipeable} = this.props
+    const {toc, expanedToc} = this.state
+    return (
+      <div style={styles.container}>
+        <div style={Object.assign({}, styles.readerArea, expanedToc ? styles.containerExpaned : {})}>
+          {showToc && this.renderTocToggle()}
+          <div style={styles.titleArea}>{title}</div>
+          <Swipeable
+            onSwipedRight={this.prev}
+            onSwipedLeft={this.next}
+            trackMouse
+          >
+            <div style={styles.reader}>
+              <EpubView
+                ref='reader'
+                url={url}
+                location={location}
+                loadingView={loadingView}
+                tocChanged={this.onTocChange}
+                locationChanged={locationChanged}
+                epubOptions={epubOptions}
+                getRendition={getRendition}
+              />
+              {swipeable && <div style={styles.swipeWrapper} />}
+            </div>
+          </Swipeable>
+          <button style={Object.assign({}, styles.arrow, styles.prev)} onClick={this.prev}>‹</button>
+          <button style={Object.assign({}, styles.arrow, styles.next)} onClick={this.next}>›</button>
+        </div>
+        {showToc && toc && this.renderToc()}
+      </div>
+    )
+  }
+}
+
+ReactReader.defaultProps = {
+  loadingView: <div style={defaultStyles.loadingView}>Loading…</div>,
+  locationChanged: null,
+  tocChanged: null,
+  showToc: true,
+  styles: defaultStyles
+}
+
+ReactReader.propTypes = {
+  title: PropTypes.string,
+  loadingView: PropTypes.element,
+  url: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(ArrayBuffer)
+  ]),
+  showToc: PropTypes.bool,
+  location: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  locationChanged: PropTypes.func,
+  tocChanged: PropTypes.func,
+  styles: PropTypes.object,
+  epubOptions: PropTypes.object,
+  getRendition: PropTypes.func,
+  swipeable: PropTypes.bool
 }
 
 export default EReader;
