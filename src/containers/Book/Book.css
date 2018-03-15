@@ -1,16 +1,107 @@
 img {
   width: auto;
   height: 50vh;
+  box-shadow: .5px 3px 3px .5px grey; 
+  margin: 0px 0px 20px 0px;
 }
 
 p {
   font-family: 'Montserrat', sans-serif;
+  color: #333332;
+  width: 60vw;
+  font-size: 24px;
+  text-align: center;
+/*  justify-content: center;*/
+  
 }
 
 button {
   width: 150px;
   height: 40px;
   font-size: 16px;
+}
+
+/*.book-title,
+.selected,
+.spoken {
+  font-family: 'Montserrat', sans-serif;
+  
+}*/
+
+/*.reader-display p {
+  vertical-align: middle;
+}
+*/
+.reader-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-title {
+  font-size: 24px;
+  margin: 55px 0px 25px 0px;
+}
+
+.reader-styling {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+}
+
+.wiggle {
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transition: visibility 1s ease 2s, opacity 1s ease 2s; 
+  visibility: hidden;
+  opacity: 0;
+}
+
+.alert-banner {
+  margin: 20px 0px 0px 0px;
+  background: green;
+  height: 200px;
+  width: 100vw;
+  color: white;
+  font-size: 30px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.sparkles {
+ /* transition: 450ms color;*/
+  transition: visibility 1s ease 3s, opacity 1s ease 3s; 
+ /* transition: 3s opacity;*/
+  color: #56c5e0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.selected,
+.spoken {
+  position: relative;
+  font-size: 16px;
+  margin: 20px 0px;
 }
 
 .button-display {
@@ -153,4 +244,58 @@ button {
       -moz-box-shadow: 0 0 0 0 rgba( 214, 0, 0, 0);
       box-shadow: 0 0 0 0 rgba( 214, 0, 0, 0);
   }
+}
+
+.alert-container.correct .alert-overlay.right {
+  right: 0;
+  left: 0;
+}
+
+.alert-overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  
+  background: #66e3e1; /* Old browsers */
+  background: -moz-linear-gradient(left, #66e3e1 1%, #56c5e0 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #66e3e1 1%,#56c5e0 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #66e3e1 1%,#56c5e0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66e3e1', endColorstr='#56c5e0',GradientType=1 ); /* IE6-9 */
+
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+  width: 100%; 
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+}
+
+.alert-overlay.right {
+  right: 200%;
+  left: -100%;
+}
+
+
+.alert-container {
+  position: relative;
+  float: left;
+  margin: 20px 0px 0px 0px;
+  overflow: hidden;
+  width: 100vw;
+  height: 100px;
+  color: white;
+}
+
+.alert-text {
+  font-family: 'Montserrat', sans-serif;
+  width: auto;
+  margin: 0px 15px;
+  color: white;
+  letter-spacing: 2px;
 }

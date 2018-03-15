@@ -27,10 +27,10 @@
 }
 
 /*come back and blur the background image*/
+/*
 #blur {
   filter: blur(5px);
-
-}
+}*/
 
 .element-styling {
   display: flex;

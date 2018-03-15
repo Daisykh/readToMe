@@ -38,16 +38,25 @@ export class BookThumbNail extends Component {
   render() {
     return (
       <div className="row-container">
+        <h3 className="row-title">All Books</h3>
         <div className="row">
           <div className="row__inner parent">
             { this.renderedThumbNails() }
           </div>
         </div>
+        <h3 className="row-title">Non Fiction</h3>
         <div className="row">
           <div className="row__inner parent">
             { this.renderedThumbNails() }
           </div>
         </div>
+        <h3 className="row-title">Animal Books</h3>
+        <div className="row">
+          <div className="row__inner parent">
+            { this.renderedThumbNails() }
+          </div>
+        </div>
+        <h3 className="row-title">Adventure</h3>
         <div className="row">
           <div className="row__inner parent">
             { this.renderedThumbNails() }
