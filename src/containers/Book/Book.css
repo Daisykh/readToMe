@@ -56,9 +56,9 @@ button {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
-
-/*  visibility: hidden;
-  opacity: 0;*/
+  transition: visibility 1s ease 2s, opacity 1s ease 2s; 
+  visibility: hidden;
+  opacity: 0;
 }
 
 .alert-banner {
@@ -293,7 +293,9 @@ button {
 }
 
 .alert-text {
+  font-family: 'Montserrat', sans-serif;
   width: auto;
   margin: 0px 15px;
   color: white;
+  letter-spacing: 2px;
 }

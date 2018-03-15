@@ -53,13 +53,11 @@ class Header extends Component {
           <h2 className="title">My Bookshelf</h2>
           <div className="reading-scores" >
             <span className="score">
-              <h4>streak:</h4><h4>{streak}</h4>
+              <h4 className="score-text">Streak</h4><h4 className="score-text">{streak}</h4>
             </span>
             <span className="score">
-              <h4>all-time:</h4><h4>{lifeTimeReading}</h4>
+              <h4 className="score-text">All-Time</h4><h4 className="score-text">{lifeTimeReading}</h4>
             </span>
-
-
           </div>
         </div>
       </div>
